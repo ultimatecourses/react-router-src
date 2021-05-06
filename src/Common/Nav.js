@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { css } from '@emotion/css';
 
 const NavStyles = css`
@@ -9,13 +9,21 @@ const NavStyles = css`
     padding: 6px 12px;
     text-decoration: none;
     border-radius: 4px;
+    &.active {
+      color: #50fa7b;
+      border: 2px solid #50fa7b;
+    }
   }
 `;
 
 const Nav = () => (
   <nav className={NavStyles}>
-    <Link to="/">Products</Link>
-    <Link to="/admin">Admin</Link>
+    <NavLink to="/" activeClassName="active" end>
+      Products
+    </NavLink>
+    <NavLink to="/admin" activeClassName="active">
+      Admin
+    </NavLink>
   </nav>
 );
 
