@@ -9,6 +9,7 @@ import { css } from '@emotion/css';
 
 import Nav from './Common/Nav';
 import Products from './Products/Products';
+import ProductsIndex from './Products/ProductsIndex';
 import Admin from './Admin/Admin';
 
 const AppStyles = css`
@@ -29,7 +30,9 @@ const App = () => {
         <div className="Container">
           <Nav />
           <Routes>
-            <Route path="/" element={<Products />} />
+            <Route path="/" element={<Products />}>
+              <Route path="/" element={<ProductsIndex />} />
+            </Route>
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
