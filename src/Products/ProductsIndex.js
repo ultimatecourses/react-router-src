@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import ProductCard from './ProductCard';
+
 import { listProducts } from './ProductsService';
 
 const ProductsIndex = () => {
@@ -19,7 +21,7 @@ const ProductsIndex = () => {
   return (
     <div>
       {products.map((item) => (
-        <div key={item.id}>{item.name}</div>
+        <ProductCard product={item} key={item.id} />
       ))}
     </div>
   );
