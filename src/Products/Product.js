@@ -28,6 +28,18 @@ const ProductStyles = css`
       width: 50px;
       margin-right: 15px;
     }
+    &-Button {
+      border: 2px solid #50fa7b;
+      color: #50fa7b;
+      background: none;
+      padding: 10px 15px;
+      margin-right: 5px;
+      border-radius: 6px;
+      outline: 0;
+      cursor: pointer;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
   }
 `;
 
@@ -67,6 +79,13 @@ const Product = () => {
       </div>
       <div className="Product-Description">
         <p>{product.description}</p>
+        <button
+          type="button"
+          className="Product-Button"
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </button>
       </div>
     </div>
   );
