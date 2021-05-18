@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": "big-cheese",
-      "name": "Big Cheese",
-      "description": "Large burger, all the cheese.",
-      "price": 749
-    },
-    {
       "id": "the-wedge",
       "name": "The Wedge",
       "description": "Tasty sandwich to max your tastebuds.",
@@ -47,6 +41,12 @@
       "name": "Wild Water",
       "description": "Spring water, wild and watery.",
       "price": 299
+    },
+    {
+      "id": "big-cheese",
+      "name": "Big Cheese",
+      "price": 799,
+      "description": "Large burger, all the cheese."
     }
   ]
 }
