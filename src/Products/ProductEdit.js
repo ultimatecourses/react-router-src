@@ -6,6 +6,7 @@ import {
   createProduct,
   retrieveProduct,
   updateProduct,
+  deleteProduct,
 } from './ProductsService';
 
 const ProductEditStyles = css`
@@ -95,6 +96,18 @@ const ProductEdit = () => {
     }
   };
 
+  const handleDelete = async () => {
+    if (!window.confirm(`Really delete ${form.name}?`)) {
+      return;
+    }
+    try {
+      await deleteProduct(form.id);
+      navigate(`/admin`);
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
   if (form === null) {
     return <div>Loading...</div>;
   }
@@ -148,6 +161,14 @@ const ProductEdit = () => {
         onClick={handleUpdate}
       >
         Update
+      </button>
+
+      <button
+        type="button"
+        className="ProductEdit-Button"
+        onClick={handleDelete}
+      >
+        Delete
       </button>
     </form>
   );

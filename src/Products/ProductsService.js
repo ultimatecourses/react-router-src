@@ -43,3 +43,14 @@ export const updateProduct = async (payload) => {
   }
   throw new Error('Something went wrong');
 };
+
+export const deleteProduct = async (id) => {
+  const response = fetch(`/api/products/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    return await response.json();
+  }
+  throw new Error('Something went wrong');
+};
