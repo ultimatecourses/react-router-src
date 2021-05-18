@@ -35,8 +35,8 @@ const Admin = () => (
 
     <Routes>
       <Route path="/" element={<ProductsIndex />} />
-      <Route path="/new" element={<ProductEdit />} />
-      <Route path="/:id" element={<ProductEdit />} />
+      <Route path="/new" element={<ProductEdit isEdit={false} />} />
+      <Route path="/:id" element={<ProductEdit isEdit={true} />} />
     </Routes>
   </div>
 );
