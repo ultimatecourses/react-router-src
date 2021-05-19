@@ -43,15 +43,40 @@ const ProductsIndex = () => {
   useEffect(() => {
     (async () => {
       const data = await listProducts();
-      setProducts(data);
+      const params = Object.fromEntries([...searchParams]);
+      sortProductsFromParams(data, params);
     })();
   }, []);
+
+  const sortProductsFromParams = (data, params) => {
+    if (!Object.keys(params).length) {
+      setProducts(data);
+      return;
+    }
+
+    const sorted = [...data].sort((x, y) => {
+      const { sort, order } = params;
+      switch (order) {
+        case 'ascending': {
+          return x[sort] > y[sort] ? 1 : -1;
+        }
+        case 'descending': {
+          return x[sort] < y[sort] ? 1 : -1;
+        }
+        default: {
+          return 0;
+        }
+      }
+    });
+    setProducts(sorted);
+  };
 
   const updateParams = (e) => {
     const { name, value } = e.target;
     const currentParams = Object.fromEntries([...searchParams]);
     const newParams = { ...currentParams, [name]: value };
     setSearchParams(newParams);
+    sortProductsFromParams(products, newParams);
   };
 
   if (products === null) {
