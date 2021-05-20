@@ -4,9 +4,10 @@ import { css } from '@emotion/css';
 
 // import Product from './Product';
 // import ProductsIndex from './ProductsIndex';
+import Loadable from '../Common/Loadable';
 
-const Product = lazy(() => import('./Product'));
-const ProductsIndex = lazy(() => import('./ProductsIndex'));
+const Product = Loadable(lazy(() => import('./Product')));
+const ProductsIndex = Loadable(lazy(() => import('./ProductsIndex')));
 
 const ProductsStyles = css`
   display: flex;
