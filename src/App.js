@@ -8,6 +8,7 @@ import {
 import { css } from '@emotion/css';
 
 import Nav from './Common/Nav';
+import ScrollToTop from './Common/ScrollToTop';
 import ProtectedRoute from './Common/ProtectedRoute';
 import Products from './Products/Products';
 import Admin from './Admin/Admin';
@@ -29,6 +30,7 @@ const App = () => {
   return (
     <div className={AppStyles}>
       <Router>
+        <ScrollToTop />
         <div className="Container">
           <Nav />
           <Routes>
